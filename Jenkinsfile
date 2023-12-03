@@ -7,7 +7,7 @@ pipeline {
                 script {
                     // Ensuring SonarQube scanner is available
                     withSonarQubeEnv('test-sonar-scanner') {
-                        sh 'sonar-scanner -Dsonar.projectKey=Your_Project_Key -Dsonar.sources=src'
+                        sh 'sonar-scanner -Dsonar.projectKey=bmi-calculator -Dsonar.sources=src'
                     }
                 }
             }
