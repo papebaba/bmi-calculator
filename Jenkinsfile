@@ -3,6 +3,11 @@ pipeline {
 
     stages {
         stage('SCA: SonarQube Analysis') {
+            agent {
+                docker {
+                    image 'sonarsource/sonar-scanner-cli:latest'
+                    }
+                }
             steps {
                 script {
                     // Ensuring SonarQube scanner is available
@@ -13,15 +18,6 @@ pipeline {
             }
         }
 
-        stage('Build') {
-            steps {
-                script {
-                    // Building the Node.js and React app
-                    sh 'npm install'
-                    sh 'npm run build'
-                }
-            }
-        }
     }
 
     post {
