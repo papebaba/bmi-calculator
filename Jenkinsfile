@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script {
                     // Ensuring SonarQube scanner is available
-                    withSonarQubeEnv('localSonar') {
+                    withSonarQubeEnv('test-sonar-scanner') {
                         sh 'sonar-scanner -Dsonar.projectKey=Your_Project_Key -Dsonar.sources=src'
                     }
                 }
